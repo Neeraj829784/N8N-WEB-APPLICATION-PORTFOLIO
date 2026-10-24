@@ -29,12 +29,18 @@ export function SiteHeader() {
   }, [open]);
 
   useEffect(() => {
+    const sections = [...document.querySelectorAll<HTMLElement>("#main-content > section")];
+    const visible = new Set<Element>();
     const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id === "top" ? "" : "#" + entry.target.id);
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      const current = sections.find(section => visible.has(section));
+      const href = current?.id ? "#" + current.id : "";
+      setActive(links.some(([, destination]) => destination === href) ? href : "");
     }, { rootMargin: "-20% 0px -55% 0px" });
-    links.forEach(([, href]) => { const node = document.querySelector(href); if (node) observer.observe(node); });
-    const hero = document.querySelector("#top");
-    if (hero) observer.observe(hero);
+    sections.forEach(section => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 

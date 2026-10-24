@@ -34,13 +34,18 @@ Browser checks require Chrome with remote debugging on localhost:9227 and the ap
 ```sh
 npm run qa:browser
 npm run qa:launch
+npm run qa:navigation
 ```
 
 The launch check uses axe-core, tests both enquiry modes, and mocks delivery responses inside the browser. It never sends a real enquiry. Screenshots and audit JSON files use the ignored `qa-*` prefix. Its local LCP/CLS readings are diagnostic measurements, not a real-device performance guarantee.
 
-## Configuration to fill in later
+The navigation check opens a temporary browser tab and verifies section highlighting, command-menu fragments and Back/Forward history, keyboard selection, and Windows/macOS shortcut hints. It never fills or submits the contact form. Set `QA_ORIGIN` to test another local port and `QA_CDP_URL` to use another isolated Chrome debugging endpoint.
 
-The project domain is `neerajwork.in`. Resend has verified `notify.neerajwork.in`, and the sender is `enquiries@notify.neerajwork.in`. The private sending key is saved only in the ignored `.env.local`; configure it separately in hosting before deployment. A real local-browser enquiry test succeeded, with Resend reporting Delivered. See [the domain setup record](docs/domain-setup.md) for evidence and remaining launch steps. Website deployment is still pending.
+## Deployment and configuration
+
+The portfolio is deployed on Vercel at https://portfolio.neerajwork.in. Hostinger manages its DNS; the root domain and email records are separate and unchanged. Resend has verified `notify.neerajwork.in`, and the sender is `enquiries@notify.neerajwork.in`. The private sending key is configured as a production-only sensitive variable in Vercel and in the ignored local `.env.local`, never in Git. A real local-browser enquiry test succeeded, with Resend reporting Delivered; a production inbox test remains pending. See [the domain setup record](docs/domain-setup.md) for verification and remaining launch steps.
+
+The initial deployment used the reviewed Git commit's files directly because Vercel's GitHub login connection is not configured. GitHub pushes do not currently deploy automatically. Connect the intended GitHub account and repository in Vercel before relying on automatic deployments. Search indexing remains disabled until launch approval.
 
 Copy `.env.example` to `.env.local` for local configuration, or set the same values in the hosting environment. Actual `.env` files and local `.codex` account configuration are ignored by Git.
 

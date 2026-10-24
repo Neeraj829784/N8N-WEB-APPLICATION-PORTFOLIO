@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit --incremental false",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "qa:browser": "node scripts/qa-browser.mjs",
-    "qa:launch": "node scripts/qa-launch.mjs"
+    "qa:launch": "node scripts/qa-launch.mjs",
+    "qa:navigation": "node scripts/qa-navigation.mjs"
   },
   "dependencies": {
     "next": "16.4.2",
