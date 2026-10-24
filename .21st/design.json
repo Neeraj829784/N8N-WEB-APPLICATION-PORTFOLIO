@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "project": {
+    "name": "n8n-web-application-portfolio",
+    "productType": "personal n8n freelancer portfolio and landing page",
+    "stack": [
+      "nextjs",
+      "react",
+      "tailwind-v4"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/app/globals.css",
+      "src/app/studio.css"
+    ],
+    "components": [
+      "src/components/ui",
+      "src/components/sections"
+    ],
+    "assets": [
+      "public/fonts/manrope.ttf",
+      "public/brand/n8n-connected-nodes.svg",
+      "src/app/icon.svg"
+    ],
+    "instructions": [
+      "AGENTS.md",
+      "CONTENT.md"
+    ]
+  },
+  "design": {
+    "colorMode": "dark",
+    "colors": {
+      "--background": {
+        "value": "#0c0e12",
+        "source": "src/app/globals.css"
+      },
+      "--foreground": {
+        "value": "#f5f5f7",
+        "source": "src/app/globals.css"
+      },
+      "--foreground-muted": {
+        "value": "#b0acb8",
+        "source": "src/app/globals.css"
+      },
+      "--accent": {
+        "value": "#ff9b6a",
+        "source": "src/app/globals.css"
+      },
+      "--accent-soft": {
+        "value": "#30221d",
+        "source": "src/app/globals.css"
+      },
+      "--signal": {
+        "value": "#94d4af",
+        "source": "src/app/globals.css"
+      },
+      "--blue": {
+        "value": "#c3b7d7",
+        "source": "src/app/globals.css"
+      },
+      "--sky": {
+        "value": "#191a1e",
+        "source": "src/app/globals.css"
+      },
+      "--surface": {
+        "value": "#181a1f",
+        "source": "src/app/globals.css"
+      },
+      "--surface-dark": {
+        "value": "#0c0e12",
+        "source": "src/app/globals.css"
+      },
+      "--line": {
+        "value": "#34343a",
+        "source": "src/app/globals.css"
+      },
+      "--line-dark": {
+        "value": "#34343a",
+        "source": "src/app/globals.css"
+      }
+    },
+    "typography": {
+      "--font-sans": {
+        "value": "Manrope, Segoe UI, sans-serif",
+        "source": "src/app/globals.css"
+      },
+      "--font-mono": {
+        "value": "Cascadia Code, Consolas, monospace",
+        "source": "src/app/globals.css"
+      }
+    },
+    "density": "balanced"
+  },
+  "components": {
+    "installed": [
+      "container",
+      "brand-mark",
+      "section-heading",
+      "icon",
+      "command-menu",
+      "experience-enhancements"
+    ],
+    "patterns": [
+      "left-aligned personal hero with warm glow and level workflow canvas",
+      "connection atlas diagram",
+      "filterable system briefs",
+      "horizontal architecture paths",
+      "native command dialog",
+      "guided brief builder"
+    ]
+  },
+  "constraints": {
+    "must": [
+      "Present projects as explicitly labelled examples until real case studies are supplied",
+      "Keep personal freelance positioning and a clear contact path",
+      "Support keyboard controls, visible focus, reduced motion, and small screens",
+      "Keep the brief builder local unless server-side delivery is configured; show confirmed delivery states only after the receiver accepts the enquiry"
+    ],
+    "avoid": [
+      "Invented clients, testimonials, metrics, credentials, or experience",
+      "Dead demo buttons and fabricated project repository links",
+      "Contact delivery to a placeholder email"
+    ]
+  },
+  "decisions": [
+    "User approved automatic enquiry emails through Resend to the supplied owner inbox. Preserve the existing form design, disclose third-party processing before submission, and distinguish provider acceptance from inbox delivery. Local brief and email-draft fallbacks remain available without credentials.",
+    "User asked for a distinct identity after the reference-informed version felt too similar to the reference.",
+    "Present projects as system briefs with title and tools beside a narrative, a horizontal architecture path, and expandable implementation notes.",
+    "Place project examples early, followed by capabilities, toolkit, profile, process, FAQ, and contact. The workflow playground was removed at the user's request.",
+    "Preserve explicit example labels, keyboard navigation, native dialog and disclosure behaviour, reduced motion, and honest enquiry states. The user authorised configurable server-side delivery while personal details remain pending.",
+    "User selected the supplied dark automation reference: near-black charcoal, warm orange #ff9b6a, a static subtle hero glow and fading grid, neutral workflow screens, and unchanged official coral n8n artwork. This supersedes previous blue and pink theme decisions. The decorative globe is removed."
+  ]
+}
+
