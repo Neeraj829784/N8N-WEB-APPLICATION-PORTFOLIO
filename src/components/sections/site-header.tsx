@@ -6,7 +6,7 @@ import { BrandMark } from "@/components/ui/brand-mark";
 import { portfolio } from "@/data/portfolio";
 import { CommandMenu } from "@/components/ui/command-menu";
 
-const links = [["Systems", "#work"], ["Capabilities", "#services"], ["Toolkit", "#stack"], ["Profile", "#about"]] as const;
+const links = [["Workflows", "#work"], ["Services", "#services"], ["Toolkit", "#stack"], ["About", "#about"]] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);

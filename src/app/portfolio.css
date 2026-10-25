@@ -57,9 +57,6 @@
 .delivery-grid h3 { font-size: 17px; margin: 0 0 8px; }
 .delivery-grid p { font-size: 12px; line-height: 1.8; color: #bab6b2; margin: 0; }
 .delivery-number { position: absolute; right: 0; top: 24px; font: 10px var(--font-mono); color: #b6a79e; }
-.preview-result { display: grid; gap: 8px; border-top: 1px solid #ffffff20; padding-top: 18px; }
-.preview-result > span { font: 8px var(--font-mono); letter-spacing: .12em; color: #b8acbb; }
-.preview-result > strong { font-size: 16px; font-weight: 500; color: #f0e7f2; }
 .project-preview .preview-nodes > span { width: 118px; height: 104px; padding: 12px; }
 .project-preview .preview-nodes small { text-align: center; font-size: 9px; line-height: 1.5; }
 .project-preview .preview-nodes i { width: 10%; flex-shrink: 0; }
@@ -82,7 +79,6 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
 .connection-atlas { width: 100%; margin: 0; padding: 0 22px; background: radial-gradient(circle at 50% 50%,#ff9b6a0b,transparent 65%),radial-gradient(#ffffff16 1px,transparent 1px),#14161b; background-size: auto,18px 18px,auto; border-radius: 22px; box-shadow: 0 32px 80px #0005; transform: none; }
 .atlas-label { padding-block: 20px; }
 .atlas-label .eyebrow { font-size: 9px; }
-.atlas-label > span:last-child { font-size: 8px; }
 .atlas-grid { grid-template-columns: 1fr .7fr 1fr; height: 355px; gap: 18px; padding-inline: 0; }
 .atlas-endpoint { padding: 12px 9px; gap: 9px; border-radius: 10px; box-shadow: 0 5px 12px #0003; }
 .atlas-endpoint > span { width: 25px; height: 27px; flex-shrink: 0; }
@@ -103,11 +99,17 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
 .work-introduction h2 { font-size: clamp(32px,4vw,50px); letter-spacing: -.055em; }
 .project-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px; }
 .project-card { border-radius: 18px; overflow: hidden; background: #14161b; margin: 0; }
+.project-identity { padding: 26px 30px; }
+.project-identity > div { min-width: 0; }
+.project-identity h3 { margin-top: 10px; }
+.project-identity p { margin-top: 8px; color: var(--foreground-muted); font-size: 15px; line-height: 1.7; }
+.project-title-block > p { margin-top: 0; max-width: 380px; font-size: 15px; }
+.project-notes .project-route { padding: 12px 0 24px; border: 0; background: none; }
+.workflow-features-heading { margin-bottom: 14px; font-size: 11px; color: var(--foreground-muted); }
 .project-card:first-child { grid-column: 1/-1; }
 .project-preview { background: radial-gradient(#ffffff16 1px,transparent 1px),#1b1c21; background-size: 19px 19px; padding: 25px 30px; border-block: 1px solid var(--line); }
 .project-card:nth-child(2) .project-preview { background-color: #201d1a; }
 .project-card:nth-child(3) .project-preview { background-color: #1c1d22; }
-.preview-caption { display: block; color: #c5bbc8; font: 9px/1.6 var(--font-mono); letter-spacing: .06em; }
 .preview-nodes { display: flex; align-items: center; justify-content: center; padding: 35px 0; }
 .preview-nodes > span { width: 76px; height: 76px; border: 1px solid #ffffff30; border-radius: 16px; background: #14161b; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #e3d7e7; box-shadow: 0 8px 20px #0003; }
 .preview-nodes > .preview-engine { color: var(--accent); border-color: #ff9b6a77; }
@@ -145,7 +147,6 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
  .connection-atlas { padding-inline: 14px; }
  .atlas-endpoint strong { font-size: 9px; }
  .atlas-grid { gap: 10px; }
- .preview-caption { font-size: 8px; }
 }
 @media(max-width:480px) {
  .atlas-grid { grid-template-columns: 1fr; height: auto; }
@@ -223,8 +224,7 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
 .project-filters { flex-wrap: nowrap; overflow-x: auto; gap: 22px; padding-block: 3px; }
 .project-filters button { flex-shrink: 0; white-space: nowrap; font-size: 13px; padding-inline: 2px; }
 .project-filters button:focus-visible { outline-offset: -3px; }
-.example-label,.project-category { font-size: 12px; }
-.project-sequence > span,.preview-caption,.preview-result > span,
+.project-category { font-size: 12px; }
 .story-row .eyebrow,.project-outcome .eyebrow,.route-title .eyebrow,
 .route-title > span:last-child { font-size: 11px; }
 .project-narrative { display: grid; gap: 14px; }
@@ -321,9 +321,7 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
   .hero-tool-list { gap: 12px 18px; }
   .hero-bottom .official-tool-label { padding-block: 4px; }
   .project-preview { padding-inline: 16px; }
-  .project-identity { padding-inline: 20px; }
-  .project-sequence > span { font-size: 10px; letter-spacing: 0; }
-  .example-label { font-size: 11px; padding: 0; }
+  .project-identity { padding: 22px 20px; }
   .project-card h3 { font-size: clamp(28px,8vw,36px); }
   .project-filters { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; overflow: visible; border: 0; margin-bottom: 24px; }
   .project-filters button { margin: 0; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; text-align: left; font-size: 12px; white-space: normal; line-height: 1.5; }
@@ -341,7 +339,6 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
   .core-orbit { width: 112px; height: 112px; top: 0; }
   .core-caption { bottom: -3px; }
   .atlas-label .eyebrow { font-size: 9px; letter-spacing: .1em; }
-  .atlas-label > span:last-child { font-size: 9px; }
   .atlas-footer { font-size: 9px; letter-spacing: 0; }
   .motion-toggle { min-height: 40px; }
 }

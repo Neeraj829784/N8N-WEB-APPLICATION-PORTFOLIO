@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Icon } from "@/components/ui/icon";
 
 const commands = [
-  ["Explore example projects", "#work", "nodes"],
+  ["Explore automation workflows", "#work", "nodes"],
   ["View automation services", "#services", "settings"],
   ["Explore the toolkit", "#stack", "code"],
   ["Meet your automation partner", "#about", "user"],
@@ -47,7 +47,7 @@ export function CommandMenu() {
           const destinations = [...(dialog.current?.querySelectorAll<HTMLAnchorElement>(".command-result") ?? [])]; const index = destinations.indexOf(event.currentTarget);
           if(event.key === "ArrowDown") { event.preventDefault(); destinations[(index+1)%destinations.length]?.focus(); }
           if(event.key === "ArrowUp") { event.preventDefault(); if(index === 0) input.current?.focus(); else destinations[index-1]?.focus(); }
-        }}><Icon name={icon} size={17} /><span>{title}</span><span>↗</span></a>) : <p className="command-empty" role="status">No matching destinations. Try “projects” or “contact”.</p>}</div>
+        }}><Icon name={icon} size={17} /><span>{title}</span><span>↗</span></a>) : <p className="command-empty" role="status">No matching destinations. Try “workflows” or “contact”.</p>}</div>
         <div className="command-hint"><span>↑ ↓ to navigate</span><span>Enter to select · Esc to close</span></div>
       </div>
     </dialog>

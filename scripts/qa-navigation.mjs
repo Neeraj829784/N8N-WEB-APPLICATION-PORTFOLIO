@@ -42,6 +42,7 @@ const key = async (name, modifiers = 0) => {
 
 try {
   await cdp("Page.enable");
+  await cdp("Page.bringToFront");
   await cdp("Emulation.setDeviceMetricsOverride", { width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false });
   await cdp("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
   await until("(()=>{const b=document.querySelector('.command-trigger');if(!b)return false;if(!document.querySelector('.command-dialog').open)b.click();return document.querySelector('.command-dialog').open})()", "page hydration");
@@ -86,6 +87,8 @@ try {
     await cdp("Emulation.setUserAgentOverride", { userAgent: await evaluate("navigator.userAgent"), platform });
     await cdp("Page.navigate", { url: origin });
     await until(`document.querySelector('.command-trigger')?.innerText===${JSON.stringify(hint)}`, `${platform} shortcut hint`);
+    await until("(()=>{const button=document.querySelector('.command-trigger');const dialog=document.querySelector('.command-dialog');if(!dialog.open)button.click();return dialog.open})()", `${platform} command menu hydration`);
+    await evaluate("document.querySelector('.command-dialog').close()");
     await key("k", modifier);
     await until("document.querySelector('.command-dialog')?.open===true", `${platform} keyboard shortcut`);
     check(true, `${platform} shows ${hint} and the advertised shortcut opens the menu`);

@@ -1,6 +1,6 @@
-# Replacing the example content
+# Maintaining the portfolio content
 
-The design is complete with illustrative projects. Profile, services, projects, toolkit, and delivery-process content live in `src/data/portfolio.ts`.
+The portfolio presents automation services and workflow offerings. Profile, services, workflows, toolkit, and delivery-process content live in `src/data/portfolio.ts`.
 
 ## Profile
 
@@ -8,7 +8,7 @@ Replace `name`, `shortName`, `location`, `email`, `intro`, `about`, and `socialL
 
 The title and author metadata in `src/app/layout.tsx` read the name from the profile automatically. The current identity is Vasupalli Neeraj, with the initials VN; update `src/app/icon.svg` as well if the initials change.
 
-## Project case studies
+## Workflow offerings and future case studies
 
 Each object in `portfolio.projects` provides:
 
@@ -18,9 +18,11 @@ Each object in `portfolio.projects` provides:
 - An ordered `flow` describing the architecture.
 - A `tools` list and an `icon` name.
 
-Categories are generated automatically from the data. The list can grow beyond the initial three examples.
+Categories are generated automatically from the data. The list can grow beyond the initial three offerings.
 
-When replacing examples with genuine work, update the example labels and introductory copy in `src/components/sections/work-section.tsx`. Describe the actual outcome and your contribution. Add real project links only when available.
+LeadFlow, WelcomeOps, and SignalDigest currently explain what Neeraj can build for a prospective client. Keep the section introduction and "What I can build" framing. Do not present these offerings as delivered client projects, measured results, or live workflow captures. Decorative workflow screens are not execution dashboards.
+
+When genuine work is available, add a separate case-study treatment with the actual problem, contribution, evidence, and outcome. Add client names, screenshots, metrics, and project links only with supporting evidence and permission. Do not restore repeated example badges, numbered system-brief captions, or textbook-style figure labels.
 
 The current page does not claim client results, credentials, testimonials, or completed deployments.
 

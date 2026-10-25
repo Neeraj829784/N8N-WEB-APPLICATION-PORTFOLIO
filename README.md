@@ -1,6 +1,6 @@
 # Vasupalli Neeraj — automation portfolio
 
-A personal portfolio and enquiry website built with Next.js, React, TypeScript, and Tailwind CSS. The charcoal/orange design includes labelled example projects and accessible, reduced-motion-friendly interactions.
+A personal portfolio and enquiry website built with Next.js, React, TypeScript, and Tailwind CSS. The charcoal/orange design presents automation services and workflow offerings with accessible, reduced-motion-friendly interactions.
 
 ## Run locally
 
@@ -73,7 +73,7 @@ The webhook remains an optional alternative when the Resend key and sender are b
 
 Edit `src/data/portfolio.ts` when the client's email, biography, social links, and real projects arrive. The name is already Vasupalli Neeraj and the monogram is VN. Title metadata and the social preview follow the profile name automatically. Initials are also present in `src/app/icon.svg`.
 
-Projects must remain labelled examples until real evidence is supplied. Never invent client names, testimonials, or results. See [CONTENT.md](CONTENT.md) for replacement guidance.
+LeadFlow, WelcomeOps, and SignalDigest describe workflows Neeraj can build, not completed client engagements. Keep that service framing until real case-study evidence is supplied. Never invent client names, testimonials, live execution states, or results. See [CONTENT.md](CONTENT.md) for guidance.
 
 ## Publish when details are ready
 

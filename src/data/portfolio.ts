@@ -1,4 +1,4 @@
-// Replace profile details and example projects here when real work is available.
+// Workflow offerings describe what can be built; they are not completed client case studies.
 export const portfolio = {
   name: "Vasupalli Neeraj",
   shortName: "VN",
@@ -13,7 +13,7 @@ export const portfolio = {
   },
   availability: "Available for freelance projects",
   intro: "I help founders and small teams connect their tools, automate repetitive operations, and build workflows that make everyday work feel effortless.",
-  about: "I build automations around the way your business actually works. From the first process map to the final handover, my focus is clear logic, useful safeguards, and a system your team can understand.",
+  about: "I'm an independent n8n automation specialist based in India. I work with founders and small teams to connect their tools, organise data, and take repetitive steps out of their day.",
   skills: ["n8n", "REST APIs", "Webhooks", "Data mapping", "Error handling", "Workflow documentation"],
   services: [
     { number: "01", title: "Lead management", icon: "inbox", description: "Capture enquiries, clean the data, assign an owner, and give every opportunity a clear next step." },
@@ -26,31 +26,34 @@ export const portfolio = {
   projects: [
     {
       id: "lead-routing", category: "Lead operations", title: "LeadFlow", subtitle: "From a new enquiry to a clear next action.",
-      description: "An example lead-routing system connecting form submissions, a CRM, and team notifications.",
+      description: "Connect your enquiry form to your CRM and team inbox, with clear rules for who follows up.",
+      preview: "Capture · qualify · assign",
       problem: "Enquiries arrive through a form, then someone manually copies details, checks fields, and decides who should respond.",
-      solution: "Validate the enquiry at entry, map it into a consistent record, route it by business rules, and notify the owner with context.",
+      solution: "Check incoming details, create a CRM record, assign the right person, and send them the information they need to follow up.",
       features: ["Required-field validation", "Rule-based owner assignment", "Consistent CRM field mapping", "Missing-data review path"],
-      outcome: "Designed to give every valid enquiry an owner and a visible follow-up step.",
+      outcome: "Give each valid enquiry an owner and a clear next step, with less copying between tools.",
       flow: ["Receive form webhook", "Validate required fields", "Map and create CRM record", "Route to the right owner", "Send contextual notification"],
       tools: ["n8n", "Webhooks", "CRM API", "Email"], icon: "inbox",
     },
     {
       id: "onboarding", category: "Client onboarding", title: "WelcomeOps", subtitle: "One approval. A coordinated client welcome.",
-      description: "An example onboarding workflow that keeps setup tasks, documents, and messages in sync.",
+      description: "Bring project setup, documents, and welcome messages together so your team can focus on the new client.",
+      preview: "Approve · prepare · welcome",
       problem: "Starting a client means repeating the same folder setup, task creation, and welcome emails across disconnected tools.",
-      solution: "Use a single approved trigger to create the workspace, assign the checklist, prepare a welcome email, and notify the team.",
+      solution: "Start with your approval, then create the project workspace, assign setup tasks, prepare the welcome email, and notify your team.",
       features: ["Approval before execution", "Reusable onboarding checklist", "Workspace and folder setup", "Internal handover notification"],
-      outcome: "Designed to make client setup repeatable and reduce missed handoff steps.",
+      outcome: "Give every new client a consistent start, with setup tasks and handoffs in one clear process.",
       flow: ["Receive client approval", "Create project workspace", "Generate setup checklist", "Prepare welcome email", "Notify delivery team"],
       tools: ["n8n", "Google Drive", "Notion", "Gmail"], icon: "user",
     },
     {
       id: "reporting", category: "Reporting", title: "SignalDigest", subtitle: "Scattered updates. One useful weekly brief.",
-      description: "An example reporting pipeline that gathers, formats, and distributes recurring updates.",
+      description: "Bring updates from your spreadsheets and business tools into one report, ready for your team's weekly review.",
+      preview: "Collect · check · deliver",
       problem: "Weekly reporting requires someone to open multiple tools and reassemble the same information each time.",
-      solution: "Collect the agreed data on a schedule, standardise fields, flag missing inputs, and deliver a readable summary.",
+      solution: "Gather the agreed data on a schedule, check for missing information, and send a readable summary to the people who need it.",
       features: ["Scheduled collection", "Multi-source data mapping", "Missing-input checks", "Formatted email delivery"],
-      outcome: "Designed to give teams a consistent operational snapshot with less manual assembly.",
+      outcome: "Keep the team informed with a consistent weekly update and less time spent assembling it.",
       flow: ["Run scheduled trigger", "Collect source data", "Standardise and check inputs", "Format the weekly summary", "Deliver to stakeholders"],
       tools: ["n8n", "Google Sheets", "REST APIs", "Email"], icon: "chart",
     },
@@ -62,10 +65,10 @@ export const portfolio = {
     { title: "Reliable delivery", icon: "shield", tools: ["Input validation", "Error paths", "Testing", "Handover notes"] },
   ],
   process: [
-    ["Discover", "We map the current process, the tools involved, and the outcome that would make the work easier."],
-    ["Design", "I define the trigger, data flow, decisions, and exceptions before building the workflow."],
-    ["Build & test", "The workflow is assembled in clear stages and tested against realistic inputs and failure cases."],
-    ["Hand over", "You receive the workflow, a walkthrough, and practical notes for operating it with confidence."],
+    ["Talk it through", "Show me what repeats, which tools you use, and what you want to change."],
+    ["Agree on the plan", "We agree on the workflow, the price, and what is included before the build starts."],
+    ["Build & test", "I connect the tools and test the normal steps, missing information, and service failures."],
+    ["Make it yours", "You get the workflow, a walkthrough, and clear notes on how to run and manage it."],
   ],
   socialLinks: [] as ReadonlyArray<{ label: string; href: string }>,
 } as const;

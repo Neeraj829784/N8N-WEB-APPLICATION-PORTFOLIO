@@ -131,7 +131,7 @@ export function ContactSection({ deliveryEnabled: initialDeliveryEnabled = false
             <div className="contact-signature"><BrandMark /><div><strong>{portfolio.name}</strong><small>Independent specialist · Working remotely</small></div></div>
           </div>
           <form className="brief-form" onSubmit={submit} noValidate aria-busy={status === "sending"}>
-            <div className="brief-header"><span>LET’S MAP THE FIRST STEP</span><span aria-hidden="true">↗</span></div>
+            <div className="brief-header"><span>TELL ME ABOUT YOUR PROJECT</span><span aria-hidden="true">↗</span></div>
             <fieldset disabled={status === "sending"} className="brief-fields">
               <legend className="sr-only">Automation project details</legend>
               {deliveryEnabled && (
@@ -149,17 +149,17 @@ export function ContactSection({ deliveryEnabled: initialDeliveryEnabled = false
                 </div>
               )}
               <fieldset>
-                <legend>01 / What would you like to improve?</legend>
+                <legend>What would you like to improve?</legend>
                 <div className="service-choices">{contactServices.map((item, index) => (
                   <button key={item} id={index === 0 ? "service-first" : undefined} type="button" aria-pressed={service === item} onClick={() => { setService(item); edited(); }}>{item}</button>
                 ))}</div>
                 {fieldError("service")}
               </fieldset>
-              <label htmlFor="process-description">02 / What happens today?</label>
+              <label htmlFor="process-description">What happens today?</label>
               <textarea id="process-description" name="description" required minLength={15} maxLength={2000} rows={4} placeholder="We receive enquiries by email, then copy each one into a spreadsheet…" value={description} onChange={event => { setDescription(event.target.value); edited(); }} aria-invalid={!!errors.description} aria-describedby={"description-hint" + (errors.description ? " description-error" : "")} />
               <span id="description-hint" className="field-hint">A few sentences are enough. Please leave out private customer data.</span>
               {fieldError("description")}
-              <label htmlFor="project-tools">03 / Which tools are involved? <span>(optional)</span></label>
+              <label htmlFor="project-tools">Which tools are involved? <span>(optional)</span></label>
               <input id="project-tools" name="tools" maxLength={300} placeholder="e.g. Gmail, Google Sheets, HubSpot" value={tools} onChange={event => { setTools(event.target.value); edited(); }} aria-invalid={!!errors.tools} aria-describedby={errors.tools ? "tools-error" : undefined} />
               {fieldError("tools")}
               <div hidden aria-hidden="true">

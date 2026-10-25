@@ -38,13 +38,13 @@ try {
   await delay(150);
   check(await ev("getComputedStyle(document.querySelector('.packet-signal')).animationPlayState === 'paused'"), "Off-screen atlas animations pause");
   check(await ev("!document.querySelector('#demo') && !document.querySelector('a[href=\"#demo\"]')"), "Removed playground and its links");
-  check(await ev("document.querySelectorAll('.project-card').length === 3"), "Three example case studies render");
+  check(await ev("document.querySelectorAll('.project-card').length === 3"), "Three automation workflow offerings render");
   await ev("document.querySelector('.project-filters button:nth-child(3)').click()");
-  check(await ev("document.querySelectorAll('.project-card').length === 1 && document.querySelector('.project-card h3').textContent === 'WelcomeOps'"), "Project category filter shows the correct example");
+  check(await ev("document.querySelectorAll('.project-card').length === 1 && document.querySelector('.project-card h3').textContent === 'WelcomeOps'"), "Workflow category filter shows the correct offering");
   await ev("document.querySelector('.project-filters button:first-child').click()");
-  check(await ev("document.querySelectorAll('.example-label').length === 3"), "All projects are explicitly labelled as examples");
+  check(await ev("document.querySelector('#work .work-introduction').textContent.includes('workflows I can build') && !/illustrative|example project|system brief|figure \\d/i.test(document.body.innerText)"), "Client-facing copy presents workflow services without demo captions or fabricated client claims");
   await ev("document.querySelector('.project-notes summary').click()");
-  check(await ev("document.querySelector('.project-notes').open"), "System brief implementation notes expand");
+  check(await ev("document.querySelector('.project-notes').open && document.querySelector('.project-notes .project-route li').getClientRects().length > 0"), "How it works reveals the workflow steps");
   await ev("document.querySelector('.command-trigger').focus()");
   await cdp("Input.dispatchKeyEvent",{type:"keyDown",key:"k",code:"KeyK",modifiers:2});
   check(await ev("document.querySelector('.command-dialog').open && document.activeElement.id === 'command-search'"), "Ctrl K opens the command menu and focuses search");

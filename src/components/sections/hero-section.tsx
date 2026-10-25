@@ -15,14 +15,14 @@ export function HeroSection() {
       <div className="hero-actions"><a className="button" href="#contact">Plan my automation <Icon name="arrow" size={17} /></a><a className="text-link" href={portfolio.booking.url} target="_blank" rel="noopener noreferrer">Book a 30-min call <span aria-hidden="true">↗</span><span className="sr-only"> (opens Cal.com in a new tab)</span></a></div>
       <div className="hero-assurance"><span><Icon name="user" size={14} /> Work directly with me</span><span><Icon name="code" size={14} /> Your tools, connected</span></div>
     </div>
-    <div className="hero-visual"><div className="connection-atlas" aria-label="Illustrative automation: business inputs connect through n8n to organised outcomes">
-      <div className="atlas-label"><span className="eyebrow">THE CONNECTION LAYER</span><span>Illustrative system / 001</span></div>
+    <div className="hero-visual"><div className="connection-atlas" aria-label="How n8n connects your enquiries, data, and client handoffs to organised records and team notifications">
+      <div className="atlas-label"><span className="eyebrow">YOUR WORK, CONNECTED</span></div>
       <div className="atlas-grid">
         <svg className="atlas-lines" viewBox="0 0 1000 280" preserveAspectRatio="none" aria-hidden="true"><g fill="none"><path d="M220 48H320Q390 48 390 140H465M220 140H465M220 232H320Q390 232 390 140" /><path d="M535 140H610Q610 48 680 48H780M535 140H780M610 140Q610 232 680 232H780" />
           {["M220 48H320Q390 48 390 140H465","M220 140H465","M220 232H320Q390 232 390 140H465","M535 140H610Q610 48 680 48H780","M535 140H780","M535 140H610Q610 232 680 232H780"].map((path,index)=><path key={path} className={"packet-signal packet-" + index} d={path} pathLength="1" />)}
         </g></svg>
         <div className="atlas-sources">{[["inbox","New enquiries","Form submissions"],["database","Scattered data","Sheets & business tools"],["user","Client handoffs","People & processes"]].map(([icon,title,subtitle])=><div className="atlas-endpoint" key={title}><span><Icon name={icon} size={18} /></span><div><strong>{title}</strong><small>{subtitle}</small></div></div>)}</div>
-        <div className="atlas-core"><div className="core-orbit" aria-hidden="true" /><span className="core-badge"><Image className="n8n-platform-logo" src="/brand/n8n-connected-nodes.svg" alt="n8n" width={66} height={35} unoptimized /></span><span className="core-caption">Workflow orchestration</span></div>
+        <div className="atlas-core"><div className="core-orbit" aria-hidden="true" /><span className="core-badge"><Image className="n8n-platform-logo" src="/brand/n8n-connected-nodes.svg" alt="n8n" width={66} height={35} unoptimized /></span><span className="core-caption">Powered by n8n</span></div>
         <div className="atlas-outcomes">{[["check","Clean records","Validated & organised"],["mail","The right notification","Context delivered"],["chart","A clear next step","Less manual coordination"]].map(([icon,title,subtitle])=><div className="atlas-endpoint" key={title}><span><Icon name={icon} size={18} /></span><div><strong>{title}</strong><small>{subtitle}</small></div></div>)}</div>
       </div>
       <div className="atlas-footer"><span>INPUTS</span><span>CONNECT · DECIDE · ACT</span><MotionControl /><span>OUTCOMES</span></div>
