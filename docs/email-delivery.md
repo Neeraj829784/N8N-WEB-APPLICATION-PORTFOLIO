@@ -10,12 +10,18 @@ Use the server-side environment variables in `.env.example`:
 | --- | --- |
 | `RESEND_API_KEY` | A sending API key from your Resend account. |
 | `CONTACT_FROM_EMAIL` | A bare sender address on a domain you have verified in Resend, such as `enquiries@your-domain.com`. Do not use your Gmail address as the sender. |
-| `CONTACT_TO_EMAIL` | `neerajvasupalli200@gmail.com`. If omitted, it defaults to the email in `src/data/portfolio.ts`. |
+| `CONTACT_TO_EMAIL` | `neerajautomations@zohomail.in`. If omitted, it defaults to the email in `src/data/portfolio.ts`. |
 | `SITE_URL` | The final public HTTPS origin, for example `https://your-domain.com`. |
 
 Never prefix credentials with `NEXT_PUBLIC_`. Enter actual keys in the hosting platform's environment-variable settings or your ignored `.env.local`, not in source code or chat. Do not commit `.env.local`.
 
 The recipient and sender are fixed by server configuration. Visitor input cannot change either. The visitor's validated email is used only as `Reply-To`, so replying from the inbox addresses that visitor. No automatic confirmation is sent to visitor addresses.
+
+### Zoho recipient setup
+
+The owner selected the personal Zoho mailbox `neerajautomations@zohomail.in` for client communication. The website's public contact address and fixed enquiry recipient use that mailbox instead of the previous Gmail inbox. Resend remains the sending provider, using `enquiries@notify.neerajwork.in` on the existing verified domain.
+
+This is ordinary email delivery to Zoho, not a Zoho API or SMTP integration. No Zoho password, app password, OAuth token, custom-domain subscription, or new DNS/MX records are needed. Keep the existing Resend DNS records. If the Resend sending domain is retired, verify a replacement sending domain separately; that does not require changing the personal Zoho inbox.
 
 When a key or sender is present, both must be valid before automatic email submission is enabled. An incomplete email setup disables delivery; it never silently switches to an old webhook. When both are blank, the existing optional HTTPS webhook can still be used. With neither mode configured, visitors can prepare, download, or open an email draft of their brief locally.
 

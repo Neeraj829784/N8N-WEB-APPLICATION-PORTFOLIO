@@ -4,7 +4,7 @@ export const portfolio = {
   shortName: "VN",
   role: "n8n Automation Specialist",
   location: "India · Available worldwide",
-  email: "neerajvasupalli200@gmail.com",
+  email: "neerajautomations@zohomail.in",
   availability: "Available for freelance projects",
   intro: "I help founders and small teams connect their tools, automate repetitive operations, and build workflows that make everyday work feel effortless.",
   about: "I build automations around the way your business actually works. From the first process map to the final handover, my focus is clear logic, useful safeguards, and a system your team can understand.",

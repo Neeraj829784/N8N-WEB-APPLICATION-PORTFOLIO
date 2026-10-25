@@ -30,6 +30,22 @@ test("email credentials take precedence and partial setup never falls back to an
   assert.equal(getContactDeliveryConfig({ ...webhook, RESEND_API_KEY: env.RESEND_API_KEY }), null);
 });
 
+test("the portfolio default and explicit recipient use the Zoho inbox without copying Gmail", async () => {
+  const to = "neerajautomations@zohomail.in";
+  assert.equal(portfolio.email, to);
+  const getConfig = () => getContactDeliveryConfig({ ...env, CONTACT_TO_EMAIL: to });
+  let email;
+  const handler = createContactHandler({ getConfig, fetcher: async (_url, options) => {
+    email = JSON.parse(options.body);
+    return Response.json({ id: "zoho-recipient-test" });
+  } });
+  assert.equal((await handler(request())).status, 200);
+  assert.deepEqual(email.to, [to]);
+  assert.equal(email.cc, undefined);
+  assert.equal(email.bcc, undefined);
+  assert.equal(email.reply_to, valid.email);
+});
+
 test("server configuration rejects invalid addresses, recipient lists, and header injection", () => {
   for (const address of ["not-an-address", "Name <sender@example.org>", "a@example.org,b@example.org", "a@example.org;b@example.org", "a@example.org\r\nBcc: victim@example.org", "a\u0000@example.org"]) {
     assert.equal(getContactDeliveryConfig({ ...env, CONTACT_FROM_EMAIL: address }), null);
