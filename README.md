@@ -43,7 +43,7 @@ The navigation check opens a temporary browser tab and verifies section highligh
 
 ## Deployment and configuration
 
-The portfolio is deployed on Vercel at https://portfolio.neerajwork.in. Hostinger manages its DNS; the root domain and email records are separate and unchanged. Resend has verified `notify.neerajwork.in`, and the sender is `enquiries@notify.neerajwork.in`. The private sending key is configured as a production-only sensitive variable in Vercel and in the ignored local `.env.local`, never in Git. A real local-browser enquiry test succeeded, with Resend reporting Delivered; a production inbox test remains pending. See [the domain setup record](docs/domain-setup.md) for verification and remaining launch steps.
+The portfolio is deployed on Vercel at https://portfolio.neerajwork.in. Hostinger manages its DNS; the root domain and email records are separate and unchanged. Resend has verified `notify.neerajwork.in`, and the sender is `enquiries@notify.neerajwork.in`. The private sending key is configured as a production-only sensitive variable in Vercel and in the ignored local `.env.local`, never in Git. The recipient and public contact address are `neerajautomations@zohomail.in`; a production browser enquiry was confirmed in the Zoho Inbox on 2026-10-25. See [the domain setup record](docs/domain-setup.md) for verification and remaining launch steps.
 
 The initial deployment used the reviewed Git commit's files directly because Vercel's GitHub login connection is not configured. GitHub pushes do not currently deploy automatically. Connect the intended GitHub account and repository in Vercel before relying on automatic deployments. Search indexing remains disabled until launch approval.
 
@@ -80,10 +80,10 @@ Projects must remain labelled examples until real evidence is supplied. Never in
 1. Add the real profile details and confirm external links.
 2. Configure the final `SITE_URL`, Resend sending key, verified sender address, and destination inbox in the hosting environment.
 3. Deploy to a host that runs Next.js server routes; a static-file-only host cannot run the enquiry endpoint.
-4. Test a real enquiry, inbox arrival, and Reply-To behavior; configure shared host-level rate limiting for `/api/contact`.
+4. Recheck enquiry delivery after email/hosting changes and verify the existing shared contact rate-limit rule remains active.
 5. Confirm the production canonical URL, social image, sitemap, HTTPS, and mobile layout.
 6. Set `SITE_INDEXABLE=true`, rebuild, and redeploy when approved for public indexing.
 
-The endpoint includes a honeypot, a bounded request body, and best-effort in-memory rate limiting. On a multi-instance/serverless deployment, use the host's shared rate-limiting controls too. The reverse proxy must supply trusted client IP headers rather than forwarding attacker-provided values. No enquiry bodies are stored or logged by this application. Resend and the receiving inbox process the email data. This implementation has no durable queue or background retry worker.
+The endpoint includes a honeypot, a bounded request body, and best-effort in-memory rate limiting. A published Vercel Firewall rule additionally limits contact POSTs to five per minute per IP across application instances within each ingress region. This is not a global email quota cap. Run `npm run qa:rate-limit` for a no-email live check; after a quiet 65 seconds, run `npm run qa:rate-limit -- --recovery`. See [the rule definition, scope, verification, and rollback notes](docs/contact-rate-limiting.md). The reverse proxy must supply trusted client IP headers rather than forwarding attacker-provided values. No enquiry bodies are stored or logged by this application. Resend and the receiving inbox process the email data. This implementation has no durable queue or background retry worker.
 
 Keep webhook tokens and personal account settings out of commits. The repository includes application source, tests, CI, setup documentation, and project-specific design skills. Secrets, local account configuration, generated output, old design experiments, unused artwork, and private DNS recovery notes are excluded by `.gitignore` and remain local. Deployment is a separate step from pushing source to GitHub.

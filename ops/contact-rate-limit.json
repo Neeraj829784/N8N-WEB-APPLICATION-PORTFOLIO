@@ -1,0 +1,25 @@
+{
+  "name": "Portfolio contact enquiry rate limit",
+  "description": "Five contact POST attempts per IP per minute before application and email delivery.",
+  "active": true,
+  "conditionGroup": [
+    {
+      "conditions": [
+        { "type": "path", "op": "re", "value": "^/api/contact/?$" },
+        { "type": "method", "op": "eq", "value": "POST" }
+      ]
+    }
+  ],
+  "action": {
+    "mitigate": {
+      "action": "rate_limit",
+      "rateLimit": {
+        "algo": "fixed_window",
+        "window": 60,
+        "limit": 5,
+        "keys": ["ip"],
+        "action": "rate_limit"
+      }
+    }
+  }
+}

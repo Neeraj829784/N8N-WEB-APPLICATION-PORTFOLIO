@@ -25,6 +25,8 @@ Example payload (fictional test data):
 
 The application validates service selection, a trimmed 15–2,000 character description, name, reply email, and a tools list up to 300 characters. It rejects non-JSON, cross-origin, oversized, and honeypot submissions. The body limit is 16KB and the in-memory limit is five attempts per minute per client key, per server instance.
 
+The existing Vercel project additionally has a [shared regional firewall rate limit](contact-rate-limiting.md) for contact POSTs. It runs before this route regardless of whether Resend or a webhook is configured; GET status checks are not counted.
+
 ## Receiver behavior
 
 1. Authenticate the request if a token is configured.

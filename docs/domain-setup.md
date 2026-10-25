@@ -70,6 +70,10 @@ One clearly labelled, owner-only setup enquiry was sent through the live browser
 
 No test was sent to Gmail or another person. The application sends only to the fixed recipient, with no CC/BCC or Gmail fallback; a mocked regression test covers that behavior. Repeat an inbox-delivery check after future recipient, sender, DNS, or hosting changes.
 
+## Shared contact protection — 2026-10-25
+
+The project's Vercel Firewall now has an active, published five-POSTs-per-minute-per-IP rule for `/api/contact` (including an optional trailing slash). It uses shared regional edge counters, not the application's per-instance map. Live invalid-request checks confirmed five validation responses followed by Vercel edge 429s across both public hostnames. No real enquiries were sent for this check. See [the rule and no-email QA instructions](contact-rate-limiting.md). Billing and indexing remain unchanged.
+
 ## Still pending
 
 ### Search indexing — intentionally not enabled
@@ -89,7 +93,7 @@ The indexing guards in `src/lib/site.ts`, `src/app/layout.tsx`, `src/app/robots.
 ### Other launch checks
 
 1. Keep monitoring the Zoho inbox and Spam folder for client enquiries; the initial production delivery check passed above.
-2. Configure shared contact rate limits and review the commercial-use hosting plan requirement; billing was not changed.
+2. Monitor the shared contact rate limit and review the commercial-use hosting plan requirement; billing was not changed.
 3. Connect GitHub to Vercel if automatic deployments are wanted.
 4. Review the remaining personal/example project content before public launch.
 5. Enable indexing only when the public site is approved for launch.

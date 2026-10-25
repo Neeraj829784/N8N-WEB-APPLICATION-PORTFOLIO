@@ -12,7 +12,8 @@
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "qa:browser": "node scripts/qa-browser.mjs",
     "qa:launch": "node scripts/qa-launch.mjs",
-    "qa:navigation": "node scripts/qa-navigation.mjs"
+    "qa:navigation": "node scripts/qa-navigation.mjs",
+    "qa:rate-limit": "node scripts/qa-rate-limit.mjs"
   },
   "dependencies": {
     "next": "16.4.2",
