@@ -57,6 +57,19 @@ The logged-in Zoho Mail inbox identifies the personal mailbox as `neerajautomati
 
 No Zoho credentials are stored by the project, and no Hostinger DNS/MX changes are needed for a personal `@zohomail.in` mailbox. The existing Resend domain and DNS records must remain active. Changing production environment variables requires a new deployment; acceptance by Resend alone is not proof that a message appeared in the Zoho inbox.
 
+### Production delivery verified
+
+On 2026-10-25, Vercel's production `CONTACT_TO_EMAIL` was changed to the Zoho address and the committed update was deployed to `https://portfolio.neerajwork.in`. The live page shows the Zoho contact link and no previous Gmail address; `GET /api/contact` reports Resend delivery enabled. Indexing remains off.
+
+One clearly labelled, owner-only setup enquiry was sent through the live browser form. The form reported acceptance, and the matching message was then opened in the **Zoho Inbox**, with its full test content and enquiry reference visible:
+
+- Test reference: `ZOHO-SETUP-20261025-MVNGJPKJ`.
+- Enquiry reference: `0652532a-cd05-4521-9270-65ecb610b46f`.
+- From: `enquiries@notify.neerajwork.in`.
+- To and controlled test reply address: `neerajautomations@zohomail.in`.
+
+No test was sent to Gmail or another person. The application sends only to the fixed recipient, with no CC/BCC or Gmail fallback; a mocked regression test covers that behavior. Repeat an inbox-delivery check after future recipient, sender, DNS, or hosting changes.
+
 ## Still pending
 
 ### Search indexing — intentionally not enabled
@@ -75,10 +88,10 @@ The indexing guards in `src/lib/site.ts`, `src/app/layout.tsx`, `src/app/robots.
 
 ### Other launch checks
 
-1. Confirm a production setup message is visible in the new Zoho inbox (or Spam).
+1. Keep monitoring the Zoho inbox and Spam folder for client enquiries; the initial production delivery check passed above.
 2. Configure shared contact rate limits and review the commercial-use hosting plan requirement; billing was not changed.
 3. Connect GitHub to Vercel if automatic deployments are wanted.
-4. Repeat the inbox-delivery test on the deployed website and review the remaining personal/example project content.
+4. Review the remaining personal/example project content before public launch.
 5. Enable indexing only when the public site is approved for launch.
 
 The four old service A records were removed at the owner's explicit request. Their recovery values are retained locally in the Git-ignored `docs/dns-records-backup-2026-10-24.md`; they are not part of the published repository.
