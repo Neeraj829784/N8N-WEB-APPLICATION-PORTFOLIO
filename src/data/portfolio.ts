@@ -5,6 +5,12 @@ export const portfolio = {
   role: "n8n Automation Specialist",
   location: "India · Available worldwide",
   email: "neerajautomations@zohomail.in",
+  booking: {
+    url: "https://cal.com/neeraj-vasupalli/30min",
+    title: "Automation Discovery Call",
+    details: "30 minutes · Cal Video",
+    availability: "Monday–Saturday · 9 AM–6 PM IST",
+  },
   availability: "Available for freelance projects",
   intro: "I help founders and small teams connect their tools, automate repetitive operations, and build workflows that make everyday work feel effortless.",
   about: "I build automations around the way your business actually works. From the first process map to the final handover, my focus is clear logic, useful safeguards, and a system your team can understand.",

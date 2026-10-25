@@ -123,6 +123,10 @@ export function ContactSection({ deliveryEnabled: initialDeliveryEnabled = false
             <p className="eyebrow">Let&apos;s build something useful</p>
             <h2>A better workflow<br /><span>starts with a<br />conversation.</span></h2>
             <p className="contact-description">Have a repetitive process you would like to simplify? Tell me what happens today, and we can map a useful place to start.</p>
+            <div className="contact-booking">
+              <a className="button" href={portfolio.booking.url} target="_blank" rel="noopener noreferrer" aria-describedby="booking-details">Book a discovery call <span aria-hidden="true">↗</span><span className="sr-only"> (opens Cal.com in a new tab)</span></a>
+              <p className="field-hint" id="booking-details">{portfolio.booking.details}<br />{portfolio.booking.availability}<br />Choose your time on Cal.com, or send a project brief here.</p>
+            </div>
             {configuredEmail && <a className="text-link contact-email" href={"mailto:" + portfolio.email}>{portfolio.email} <span aria-hidden="true">↗</span></a>}
             <div className="contact-signature"><BrandMark /><div><strong>{portfolio.name}</strong><small>Independent specialist · Working remotely</small></div></div>
           </div>

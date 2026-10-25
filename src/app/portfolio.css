@@ -187,6 +187,8 @@ body { font-family: "Manrope", "Segoe UI", sans-serif; }
 .about-note { background: #1c1b1a !important; border-color: #4c3c33 !important; }
 .contact-studio { background: #111317; }
 .contact-email { margin-top: 16px; font-size: 14px; color: var(--accent); overflow-wrap: anywhere; }
+.contact-booking { margin-top: 24px; }
+.contact-booking .field-hint { display: block; margin-top: 12px; }
 .brief-form,.command-dialog { background: #1b1d22; }
 .brief-form input,.brief-form textarea,.brief-preview { background: #121418; }
 .service-card p,.about-copy,.process-grid p,.faq-list details > p,.story-row > p,.project-outcome > p { font-size: 15px; }

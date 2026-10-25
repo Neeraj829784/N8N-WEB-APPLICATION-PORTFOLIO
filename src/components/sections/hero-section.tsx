@@ -12,7 +12,7 @@ export function HeroSection() {
       <p className="personal-intro">Hey, I’m <strong className="font-semibold text-foreground">{portfolio.name}</strong> <span aria-hidden="true">↗</span></p>
       <h1>I connect apps.<br /><span>You get<br />your time back.</span></h1>
       <p className="hero-description">I build n8n automations for founders and small teams. Lead routing, client onboarding, connected tools, and recurring reports—built around the way you work.</p>
-      <div className="hero-actions"><a className="button" href="#contact">Plan my automation <Icon name="arrow" size={17} /></a><a className="text-link" href="#work">Explore example projects <span aria-hidden="true">↓</span></a></div>
+      <div className="hero-actions"><a className="button" href="#contact">Plan my automation <Icon name="arrow" size={17} /></a><a className="text-link" href={portfolio.booking.url} target="_blank" rel="noopener noreferrer">Book a 30-min call <span aria-hidden="true">↗</span><span className="sr-only"> (opens Cal.com in a new tab)</span></a></div>
       <div className="hero-assurance"><span><Icon name="user" size={14} /> Work directly with me</span><span><Icon name="code" size={14} /> Your tools, connected</span></div>
     </div>
     <div className="hero-visual"><div className="connection-atlas" aria-label="Illustrative automation: business inputs connect through n8n to organised outcomes">
